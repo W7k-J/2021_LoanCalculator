@@ -8,8 +8,7 @@ import math
 import argparse
 import sys
 
-parser = argparse.ArgumentParser(description="This program prints recipes \
-consisting of the ingredients you provide.")
+parser = argparse.ArgumentParser(description="This program... .")
 
 parser.add_argument("--type")
 parser.add_argument("--payment")    
@@ -17,9 +16,43 @@ parser.add_argument("--principal")
 parser.add_argument("--periods")
 parser.add_argument("--interest")
 
-args = parser.parse_args()
+arg = parser.parse_args()
 
-if arg.type != 
+print(type(arg.principal))
+
+#Co liczymy wymagania
+if arg.type != "annuity" and arg.type != "diff":
+    print('Incorrect parameters3')
+    sys.exit()
+    
+#differentiated payments wymagania
+if arg.type == "diff" and arg.payment != None:
+    print('Incorrect parameters - Payments must be none')
+    sys.exit() 
+if type(arg.principal) == type(None) or type(arg.periods) == type(None) or type(arg.intrest) == type(None):
+    print('Incorrect parameters - not enough')
+    sys.exit() 
+
+
+
+
+if type(arg.principal) == type(None):
+    if type(arg.intrest) == type(None) or type(arg.periods) == type(None)  :
+        #brakuhe annuity payment
+        print('Incorrect parameters5')
+        sys.exit() 
+        
+if type(arg.intrest) == type(None):
+        print('Incorrect parameters - lack of intrest rates')
+        sys.exit() 
+"""You should also display an error message when negative values are entered:"""
+
+
+ 
+#%% 
+# if float(arg.interest) < 0 or float(arg.periods) < 0 or float(principal < 0) or float(payment < 0):
+#     print('Incorrect parameters - mniejsze od zera')
+#     sys.exit() 
 
 sys.exit()
 #%% 
